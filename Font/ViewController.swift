@@ -11,14 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: - Outlets
-
+    
     @IBOutlet weak var baseline: UIView!
     @IBOutlet weak var xHeightLine: UIView!
     @IBOutlet weak var ascenderLine: UIView!
     @IBOutlet weak var descenderLine: UIView!
     @IBOutlet weak var capHeightLine: UIView!
     @IBOutlet weak var pointSizeLine: UIView!
-
+    
     @IBOutlet weak var xHeight: NSLayoutConstraint!
     @IBOutlet weak var ascender: NSLayoutConstraint!
     @IBOutlet weak var descender: NSLayoutConstraint!
@@ -28,11 +28,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var fontSizeSlider: UISlider!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var pointSizeLabel: UILabel!
     
     //MARK: - Properties
+    var viewModel = ViewModel(fontSize: 22.0, text: "pxX", font: UIFont.systemFont(ofSize: 22.0))
     
-    var viewModel = ViewModel(fontSize: 22.0, text: "pxX")
-
     //MARK: -
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,13 +46,27 @@ class ViewController: UIViewController {
     }
     
     //MARK: - View lifecycle
-        
+    
     override func viewDidLoad() {
-        self.updateElements()
+        setupElements()
+        updateElements()
     }
     
-    private func updateElements() {
-        let font = UIFont.systemFont(ofSize: viewModel.fontSize)
+    private func setupElements() {
+        ascenderLine.backgroundColor = .blue
+        descenderLine.backgroundColor = .blue
+        xHeightLine.backgroundColor = .red
+        capHeightLine.backgroundColor = .red
+        pointSizeLine.backgroundColor = .green
+    }
+    
+    fileprivate func updateElements() {
+        let font = viewModel.font
+        
+        label.font = font
+        label.text = viewModel.text
+        
+        textField.text = viewModel.text
         
         xHeight.constant = font.xHeight
         ascender.constant = font.ascender
@@ -63,7 +77,8 @@ class ViewController: UIViewController {
         label.font = font
         
         label.text = viewModel.text
-        self.textField.text = viewModel.text
+        textField.text = viewModel.text
+        pointSizeLabel.text = "\(viewModel.fontSize) pt"
     }
     
     //MARK: - Actions
@@ -74,9 +89,12 @@ class ViewController: UIViewController {
             return
         }
         
-        viewModel.fontSize = CGFloat(sender.value)
+        let sliderValue = floorf(sender.value)
+        viewModel.fontSize = CGFloat(sliderValue)
         
-        self.updateElements()
+        pointSizeLabel.text = "\(viewModel.fontSize) pt"
+        
+        updateElements()
     }
     
     //MARK: - Notifications
@@ -86,15 +104,44 @@ class ViewController: UIViewController {
         }
         
         guard textField == self.textField else {
-            // different textField
             return
         }
         
-        self.viewModel.text = textField.text
+        viewModel.text = textField.text
         
-        self.updateElements()
+        updateElements()
     }
     
+}
+
+//MARK: - UIPickerViewDataSource
+
+extension ViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return UIFont.familyNames.count
+    }
+}
+
+extension ViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return UIFont.familyNames[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedFontName = UIFont.familyNames[row]
+        
+        guard let font = UIFont(name: selectedFontName, size: viewModel.fontSize) else {
+            return
+        }
+        
+        viewModel.font = font
+        updateElements()
+        
+        
+    }
 }
 
