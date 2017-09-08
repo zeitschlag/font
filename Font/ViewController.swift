@@ -27,13 +27,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var fontSizeSlider: UISlider!
+    @IBOutlet weak var textField: UITextField!
     
     //MARK: - Properties
     
-    var viewModel = ViewModel(fontSize: 22.0)
+    var viewModel = ViewModel(fontSize: 22.0, text: "pxX")
+
+    //MARK: -
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.textFieldTextDidChange(_:)), name: .UITextFieldTextDidChange, object: self.textField)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - View lifecycle
@@ -53,7 +62,8 @@ class ViewController: UIViewController {
         
         label.font = font
         
-        label.text = "pxX"
+        label.text = viewModel.text
+        self.textField.text = viewModel.text
     }
     
     //MARK: - Actions
@@ -68,5 +78,23 @@ class ViewController: UIViewController {
         
         self.updateElements()
     }
+    
+    //MARK: - Notifications
+    func textFieldTextDidChange(_ notification: Notification) {
+        guard let textField = notification.object as? UITextField else {
+            return
+        }
+        
+        guard textField == self.textField else {
+            // different textField
+            return
+        }
+        
+        self.viewModel.text = textField.text
+        
+        self.updateElements()
+    }
+    
+    
 }
 

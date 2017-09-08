@@ -10,8 +10,10 @@ import UIKit
 
 class ViewModel: NSObject {
     var fontSize: CGFloat
+    var text: String?
     
-    init(fontSize: CGFloat) {
+    init(fontSize: CGFloat, text: String) {
         self.fontSize = fontSize
+        self.text = text
     }
 }

@@ -10,4 +10,5 @@
 - Add Multiline-support (is this possible with Autolayout?)
 - Find a better name for this
 - Icon?
-- Use a StackView?
+- Use a StackView: Put the Label (and the lines) to the top, the configuration-stuff to the bottom?
+- Put the Label in a scrollview 

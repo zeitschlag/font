@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,11 +70,17 @@
                                 </constraints>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="32" minValue="10" maxValue="64" translatesAutoresizingMaskIntoConstraints="NO" id="P8M-7B-anp">
-                                <rect key="frame" x="64" y="154" width="247" height="31"/>
+                                <rect key="frame" x="48" y="154" width="279" height="31"/>
                                 <connections>
                                     <action selector="fontSizeSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DFu-n2-g7p"/>
                                 </connections>
                             </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ha-h4-SA6">
+                                <rect key="frame" x="50" y="192" width="275" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -86,7 +91,8 @@
                             <constraint firstItem="u2Y-gL-i9m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FyZ-6p-4Cr"/>
                             <constraint firstAttribute="trailing" secondItem="dSG-IS-eh9" secondAttribute="trailing" id="Hb8-f0-6yS"/>
                             <constraint firstAttribute="trailing" secondItem="4X9-TP-eyf" secondAttribute="trailing" id="IlX-F3-xXk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="P8M-7B-anp" secondAttribute="trailing" constant="50" id="JA2-LU-QX3"/>
+                            <constraint firstAttribute="trailing" secondItem="P8M-7B-anp" secondAttribute="trailing" constant="50" id="JA2-LU-QX3"/>
+                            <constraint firstItem="5ha-h4-SA6" firstAttribute="width" secondItem="P8M-7B-anp" secondAttribute="width" id="Laj-nt-Geq"/>
                             <constraint firstItem="JDD-WL-fXO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MZi-MO-YVh"/>
                             <constraint firstItem="qPR-7l-WFf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mxs-Wi-V1U"/>
                             <constraint firstItem="uc9-eB-9hX" firstAttribute="baseline" secondItem="4X9-TP-eyf" secondAttribute="baseline" id="OnK-wQ-gBc"/>
@@ -95,11 +101,13 @@
                             <constraint firstItem="dSG-IS-eh9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y2Y-SH-mc2"/>
                             <constraint firstItem="4X9-TP-eyf" firstAttribute="top" secondItem="JDD-WL-fXO" secondAttribute="bottom" constant="26" id="aH2-uF-ATP"/>
                             <constraint firstItem="uc9-eB-9hX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hkZ-3c-MEf"/>
-                            <constraint firstItem="P8M-7B-anp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="kQY-Za-Vho"/>
+                            <constraint firstItem="P8M-7B-anp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="kQY-Za-Vho"/>
                             <constraint firstItem="4X9-TP-eyf" firstAttribute="top" secondItem="qPR-7l-WFf" secondAttribute="top" constant="22" id="nz2-9g-Go5"/>
+                            <constraint firstItem="5ha-h4-SA6" firstAttribute="top" secondItem="P8M-7B-anp" secondAttribute="bottom" constant="8" id="olu-7X-zUN"/>
                             <constraint firstAttribute="trailing" secondItem="JDD-WL-fXO" secondAttribute="trailing" id="ooq-yO-xyv"/>
                             <constraint firstItem="CdB-T2-J8D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="szM-hf-XOx"/>
                             <constraint firstItem="4X9-TP-eyf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uiv-46-4Xq"/>
+                            <constraint firstItem="5ha-h4-SA6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vpu-co-9rZ"/>
                             <constraint firstAttribute="trailing" secondItem="CdB-T2-J8D" secondAttribute="trailing" id="vy0-aE-4cY"/>
                             <constraint firstItem="4X9-TP-eyf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="zSG-6W-Zpe"/>
                         </constraints>
@@ -116,6 +124,7 @@
                         <outlet property="label" destination="uc9-eB-9hX" id="1VA-JX-6Zu"/>
                         <outlet property="pointSize" destination="aH2-uF-ATP" id="Yir-EU-xfV"/>
                         <outlet property="pointSizeLine" destination="JDD-WL-fXO" id="mYl-X0-VDp"/>
+                        <outlet property="textField" destination="5ha-h4-SA6" id="dDv-zV-N2A"/>
                         <outlet property="xHeight" destination="5eR-Gp-CHK" id="eRW-wW-2k7"/>
                         <outlet property="xHeightLine" destination="dSG-IS-eh9" id="F83-a0-LZv"/>
                     </connections>
