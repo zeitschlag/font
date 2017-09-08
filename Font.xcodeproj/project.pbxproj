@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D84A07F61F62B89500EBF277 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D84A07F51F62B89500EBF277 /* README.md */; };
+		D84A07F81F62BBF300EBF277 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A07F71F62BBF300EBF277 /* ViewModel.swift */; };
 		D8B8C7021F5B727B004E33B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C7011F5B727B004E33B8 /* AppDelegate.swift */; };
 		D8B8C7041F5B727B004E33B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C7031F5B727B004E33B8 /* ViewController.swift */; };
 		D8B8C7071F5B727B004E33B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8B8C7051F5B727B004E33B8 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		D84A07F51F62B89500EBF277 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D84A07F71F62BBF300EBF277 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D8B8C6FE1F5B727B004E33B8 /* Font.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Font.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B8C7011F5B727B004E33B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8B8C7031F5B727B004E33B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				D8B8C7031F5B727B004E33B8 /* ViewController.swift */,
+				D84A07F71F62BBF300EBF277 /* ViewModel.swift */,
 			);
 			name = "View Layer";
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				D84A07F61F62B89500EBF277 /* README.md in Sources */,
 				D8B8C7041F5B727B004E33B8 /* ViewController.swift in Sources */,
+				D84A07F81F62BBF300EBF277 /* ViewModel.swift in Sources */,
 				D8B8C7021F5B727B004E33B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

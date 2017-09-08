@@ -6,7 +6,8 @@
 
 ## TODO
 
-- Make text/font/font-size/color of font-lines configurable
+- Make text/font/color of font-lines configurable
 - Add Multiline-support (is this possible with Autolayout?)
 - Find a better name for this
 - Icon?
+- Use a StackView?

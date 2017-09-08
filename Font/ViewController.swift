@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: - Outlets
 
     @IBOutlet weak var baseline: UIView!
     @IBOutlet weak var xHeightLine: UIView!
@@ -24,13 +26,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var pointSize: NSLayoutConstraint!
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var fontSizeSlider: UISlider!
+    
+    //MARK: - Properties
+    
+    var viewModel = ViewModel(fontSize: 22.0)
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    //MARK: - View lifecycle
         
     override func viewDidLoad() {
         self.updateElements()
     }
     
-    func updateElements() {
-        let font = UIFont.systemFont(ofSize: 35)
+    private func updateElements() {
+        let font = UIFont.systemFont(ofSize: viewModel.fontSize)
         
         xHeight.constant = font.xHeight
         ascender.constant = font.ascender
@@ -43,5 +56,17 @@ class ViewController: UIViewController {
         label.text = "pxX"
     }
     
+    //MARK: - Actions
+    
+    @IBAction func fontSizeSliderValueChanged(_ sender: Any) {
+        
+        guard let sender = sender as? UISlider else {
+            return
+        }
+        
+        viewModel.fontSize = CGFloat(sender.value)
+        
+        self.updateElements()
+    }
 }
 
