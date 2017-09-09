@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct DefaultValues {
+    static let Size: CGFloat = 22.0
+    static let Text = "Hello, world!"
+}
+
 class ViewController: UIViewController {
     
     //MARK: - Outlets
@@ -31,7 +36,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pointSizeLabel: UILabel!
     
     //MARK: - Properties
-    var viewModel = ViewModel(fontSize: 22.0, text: "pxX", font: UIFont.systemFont(ofSize: 22.0))
+    var viewModel = ViewModel(fontSize: DefaultValues.Size, text: DefaultValues.Text, font: UIFont.systemFont(ofSize: DefaultValues.Size))
     
     //MARK: -
     
@@ -58,6 +63,8 @@ class ViewController: UIViewController {
         xHeightLine.backgroundColor = .red
         capHeightLine.backgroundColor = .red
         pointSizeLine.backgroundColor = .green
+        
+        fontSizeSlider.setValue(Float(DefaultValues.Size), animated: false)
     }
     
     fileprivate func updateElements() {
@@ -66,19 +73,14 @@ class ViewController: UIViewController {
         label.font = font
         label.text = viewModel.text
         
-        textField.text = viewModel.text
-        
         xHeight.constant = font.xHeight
         ascender.constant = font.ascender
         descender.constant = font.descender // is negative
         capHeight.constant = font.capHeight
         pointSize.constant = font.pointSize
         
-        label.font = font
-        
         label.text = viewModel.text
         textField.text = viewModel.text
-        pointSizeLabel.text = "\(viewModel.fontSize) pt"
     }
     
     //MARK: - Actions
