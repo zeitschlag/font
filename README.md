@@ -2,6 +2,8 @@
 
 Can show baseline, cap-line, ascender-line, descender-line (and some other lines) for a given font in a given size with a given text
 
+![Screenshot](screenshot.png)
+
 ## TODO
 
 - Make text/font/color of font-lines configurable
