@@ -65,6 +65,8 @@ class ViewController: UIViewController {
         pointSizeLine.backgroundColor = .green
         
         fontSizeSlider.setValue(Float(DefaultValues.Size), animated: false)
+        
+        pointSizeLabel.text = "\(viewModel.fontSize) pt"
     }
     
     fileprivate func updateElements() {
