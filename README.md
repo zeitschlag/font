@@ -8,7 +8,6 @@ Can show baseline, cap-line, ascender-line, descender-line (and some other lines
 
 - Make text/font/color of font-lines configurable
 - Add Multiline-support (is this even possible with Autolayout?)
-- Find a better name for this thing (what about typolines?)
 - Icon?
 - Use a StackView: Put the Label (and the lines) to the top, the configuration-stuff to the bottom?
 - Put everything in a scrollview for landscape
