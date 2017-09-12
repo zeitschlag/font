@@ -88,7 +88,7 @@
 		D8B8C6F51F5B727A004E33B8 = {
 			isa = PBXGroup;
 			children = (
-				D8B8C7001F5B727B004E33B8 /* Font */,
+				D8B8C7001F5B727B004E33B8 /* typolines */,
 				D8B8C6FF1F5B727B004E33B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,13 +101,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D8B8C7001F5B727B004E33B8 /* Font */ = {
+		D8B8C7001F5B727B004E33B8 /* typolines */ = {
 			isa = PBXGroup;
 			children = (
 				D84A07EF1F62B70200EBF277 /* Classes */,
 				D84A07F01F62B70800EBF277 /* Resources */,
 			);
-			name = Font;
 			path = typolines;
 			sourceTree = "<group>";
 		};
